@@ -27,4 +27,5 @@ doc = (NSXMLDocument *) some-hex-value
 but when you step into the validateAndReturnError method you just blow through to the next line and nothing happens. There is no error and no men left on base. Halp!
 
 error  id  0x0  0x0000000000000000 
-Just ignore the blank document that XMLValidator opens on launch.
+
+Note: Just ignore the blank document that XMLValidator opens on launch.
