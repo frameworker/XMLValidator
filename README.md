@@ -14,10 +14,17 @@ I searched the web for a working example but I didn't find one.
 
 INSTRUCTIONS TO REPRODUCE ISSUE
 
-You use XMLValidator's Open command to find the XML file and XMLValidator then finds the XSD file with the same prefix in the same folder. Validation occurs in the MyDocument method readFromURL which calls validateAndReturnError for the file you opened.
+You use XMLValidator's Open command to open the XML file - either from XML/SCHEMA FILES/VALID folder or XML/SCHEMA FILES/ERROR folder - and XMLValidator then finds the XSD file with the same prefix in the same folder. Validation occurs in the MyDocument method readFromURL which calls validateAndReturnError for the file you opened.
 
-There are 2 pairs of documents. One pair is in the XML_SCHEMA/VALID folder. This pair should validate successfully. The other pair is in the XML_SCHEMA/ERROR folder. This pair should fail validation, returning an error object. Note that these files are local, not web based.
+I set a breakpoint at 
 
-XMLValidator was built in Mojave 10.14.3 with Xcode 10.1. (I can't upgrade because I don't have 15 GB of space.)
+[doc validateAndReturnError:&error];
 
+when it was hit, I could see that the document was read in and parsed by inspecting it's doc variable 
+
+doc = (NSXMLDocument *) some-hex-value
+
+but when you step into the validateAndReturnError method you just blow through to the next line and nothing happens. There is no error and no men left on base. Halp!
+
+error  id  0x0  0x0000000000000000 
 Just ignore the blank document that XMLValidator opens on launch.
