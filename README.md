@@ -1,10 +1,8 @@
 # XMLValidator
 
-validateAndReturnError Incident
-
 OVERVIEW
 
-I need code to relate a schema (XSD file) to its XML document by putting a reference to the schema into the XML document.
+I have a sample Cocoa project that calls validateAndReturnError but it won't work with schema (XSD) files because the XML document hasn't been given a reference to its schema. I need code to set up that reference so I can validate the XML with its schema. 
 
 It's notable that there are NSXMLDocument methods which can be used to setup validation using DTD files but there are no corresponding methods to setup validation using schema files.
 
